@@ -254,11 +254,12 @@
 							<p> ... </p>
 							
 							<form method="post" action="verify.php">
-								<!--<?php 
+								<?php 
 								require_once("recaptchalib.php"); 
-								$publickey ("myPublicKey");
+								$publickey = "6LemKusSAAAAAOP9Fay1wDxgg_Mg9FygO1o9fDeK";
 								echo recaptcha_get_html($publickey);
-								?>-->								<div class="row half">
+								?>
+								<div class="row half">
 									<div class="6u"><input type="text" class="text" name="name" placeholder="Name" /></div>
 									<div class="6u"><input type="text" class="text" name="email" placeholder="Email" /></div>
 								</div>
