@@ -74,12 +74,6 @@
 							<li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
 							<li><a href="#contact" class="fa fa-envelope solo"><span>Contact</span></a></li>
 							<li><a href="#" class="fa fa-download solo"><span>Télécharger mon CV</span></a></li>
-						<ul class="icons">	
-							<li><a href="https://plus.google.com/100307001955660515793/posts" target="_blank" class="fa fa-google-plus solo" rel="tooltip" data-original-title="Google +" data-placement="top"><span>Google +</span></a></li>
-							<li><a href="#" class="fa fa-twitter solo" rel="tooltip" data-original-title="twitter" data-placement="top"><span>Twitter</span></a></li>
-							<li><a href="#contact" class="fa fa-envelope solo" rel="tooltip" data-original-title="Me contacter" data-placement="top"><span>Contact</span></a></li>
-							<li><a href="#" class="fa fa-download solo" rel="tooltip" data-original-title="Télécharger mon CV" data-placement="top"><span>Télécharger mon CV</span></a></li>
-						</ul>
 						</ul>
 				</div>
 			
@@ -95,8 +89,9 @@
 							<img src="images/CloudComputingWordRedim.jpg" alt="" /></a>
 
 							<header>
-								<h2 class="alt">This is <strong>Prologue</strong>. A <a href="http://html5up.net/license">free</a>, fully responsive<br />
-								site template by <a href="http://html5up.net">HTML5 UP</a>.</h2>
+								<h3 class="alt">
+									
+								</h3>
 							</header>
 							
 							<p>Ligula scelerisque justo sem accumsan diam quis. Vitae natoque dictum 
@@ -105,7 +100,7 @@
 							sollicitudin accumsan elementum.</p>
 
 							<footer>
-								<a href="#portfolio" class="button scrolly">Magna Aliquam</a>
+								<a href="#contact" class="button scrolly">Me contacter</a>
 							</footer>
 
 						</div>
@@ -248,37 +243,108 @@
 						<div class="container">
 
 							<header>
-								<h2>Contact</h2>
+								<h2>Contactez-moi</h2>
 							</header>
 
-							<p> ... </p>
+							<p>Vous pouvez me contacter par e-mail en remplissant le formulaire ci-dessous</p>
+							<?php
+								$valueName = "";
+								$valueEmail = "";
+								$valueMessage = "";
+
+								if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
+									require_once('recaptchalib.php');
+									$privatekey = "6LemKusSAAAAAPZ0Bt7t14zUIrpLD8kMQgyioJie";
+									$resp = recaptcha_check_answer($privatekey,
+												$_SERVER["REMOTE_ADDR"],
+												$_POST["recaptcha_challenge_field"],
+												$_POST["recaptcha_response_field"]);
+									if (!$resp->is_valid) {
+										// What happens when the CAPTCHA was entered incorrectly						
+										echo "
+											<script>
+												alert('Les valeurs saisies dans le captcha ne sont pas correctes.');
+											</script>";														
+											
+									} else {										
+										//----------------------------------------------- 
+										//DECLARE LES VARIABLES 
+										//----------------------------------------------- 
+										$destinataire = "contact@c-renaud.fr";
+										$email_expediteur = $_POST['email']; 
+										$email_reply = $_POST['email'];
+										 
+										$message = $_POST['message']; 
+										
+										//----------------------------------------------- 
+										//HEADERS DU MAIL 
+										//----------------------------------------------- 
+
+										$headers = 'From: '.$_POST['name'].' <'.$email_expediteur.'>'."\n"; 
+										$headers .= 'Reply-To: <'.$email_reply.'>'."\n"; 
+										$headers .= 'MIME-Version: 1.0'."\n"; 
+										$headers .= 'Content-Type: text/plain; charset="iso-8859-1"'."\n"; 										
+	
+										if (mail($destinataire, "Envoi d'un message depuis mon CV en ligne", $message, $headers)) 
+										{ 
+											echo "
+											<script> 
+												alert('Votre message a bien ete envoye.');
+											</script>
+											";
+										} 
+										else 
+										{ 
+											echo "
+											<script> 
+												alert('Votre message n'a pas pu etre envoye.');
+											</script>
+											";
+										}
+																				
+										$_POST['name'] = null;
+										$_POST['email'] = null;
+										$_POST['message'] = null;
+									}
+								}
+								
+								if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {									
+									if (($_POST['name'] != null) && ($_POST['email'] != null) && ($_POST['message'] != null)) {
+										$valueName = $_POST['name'];
+										$valueEmail =  $_POST['email'];
+										$valueMessage = $_POST['message'];
+									}
+								}
+							?>
 							
-							<form method="post" action="verify.php">
-								<?php 
-								require_once("recaptchalib.php"); 
-								$publickey = "6LemKusSAAAAAOP9Fay1wDxgg_Mg9FygO1o9fDeK";
-								echo recaptcha_get_html($publickey);
-								?>
+							<form method="post" action="#contact">								
 								<div class="row half">
-									<div class="6u"><input type="text" class="text" name="name" placeholder="Name" /></div>
-									<div class="6u"><input type="text" class="text" name="email" placeholder="Email" /></div>
+									<div class="6u"><input type="text" class="text" id="name" name="name" placeholder="Votre nom" value="<?php echo $valueName; ?>" /></div>
+									<div class="6u"><input type="text" class="text" id="email" name="email" placeholder="Votre e-mail" value="<?php echo $valueEmail; ?>" /></div>
 								</div>
 								<div class="row half">
 									<div class="12u">
-										<textarea name="message" placeholder="Message"></textarea>
+										<textarea id="message" name="message" placeholder="Votre message"><?php echo $valueMessage; ?></textarea>
 									</div>
 								</div>
 								<div class="row">
 									<div class="12u">
-										<a href="mailto:contact@c-renaud.fr" class="button submit">Envoyer</a>
+										<?php 
+											require_once("recaptchalib.php"); 
+											$publickey = "6LemKusSAAAAAOP9Fay1wDxgg_Mg9FygO1o9fDeK";
+											echo recaptcha_get_html($publickey);
+										?>
+									</div>
+								</div>
+								<div class="row">
+									<div class="12u">
+										<a href="" class="button submit">Envoyer</a>
 									</div>
 								</div>
 							</form>
-
 						</div>
 					</section>
-			</div>
-
+			</div>			
 		<!-- Footer -->
 			<div id="footer">
 				
