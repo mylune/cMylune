@@ -29,6 +29,21 @@
     				theme : 'white',
     				lang: 'en',
  			};
+ 			
+ 			/*$( "toggle" ).click(function() {
+		      	$( ".toggle-content" ).toggle( "slow" );
+		      	return false;
+		    });*/
+
+			$(document).ready(function(e){
+
+			   $('.toggle').on('click',function(){
+
+			      $('.toggle-content').slideToggle();
+
+			   });
+
+			})
   		</script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
@@ -156,20 +171,21 @@
 							<div class="row">
 								<div class="4u" >																			
 										<article class="item">
-												<div class="accordion">
-													<div>
+												<div >
+													<div class="toggle">
 														<img src="images/html.png" alt="" />
 														<header>
 															<h3>Langages</h3>
 														</header>
 													</div>
-													<div class="accordion-content">
+													
+												</div>
+												<div class="toggle-content">
 														<li>C#</li>
 														<li>HTML</li>
 														<li>PHP</li>
 														<li>Java</li>
 														<li>ASP.NET</li>
-													</div>
 												</div>
 										</article>
 								</div>
