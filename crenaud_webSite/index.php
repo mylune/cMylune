@@ -71,9 +71,9 @@
 					<!-- Social Icons -->
 						<ul class="icons tt-wrapper">
 							<li><a href="https://plus.google.com/100307001955660515793/posts" target="_blank" class="fa fa-google-plus solo"><span>Google +</span></a></li>
-							<li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
+							<li><a href="https://twitter.com/Mylune02" class="fa fa-twitter solo"><span>Twitter</span></a></li>
 							<li><a href="#contact" class="fa fa-envelope solo"><span>Contact</span></a></li>
-							<li><a href="#" class="fa fa-download solo"><span>Télécharger mon CV</span></a></li>
+							<li><a href="http://c-renaud.fr/opendl/CV_RENAUD_Camille_2013.pdf" target="_blank" class="fa fa-download solo"><span>Télécharger mon CV</span></a></li>
 						</ul>
 				</div>
 			
@@ -163,8 +163,12 @@
 															<h3>Langages</h3>
 														</header>
 													</div>
-													<div>
-														<p>C# HTML PHP Java</p>
+													<div class="accordion-content">
+														<li>C#</li>
+														<li>HTML</li>
+														<li>PHP</li>
+														<li>Java</li>
+														<li>ASP.NET</li>
 													</div>
 												</div>
 										</article>
@@ -179,8 +183,11 @@
 														<h3>Programmes</h3>												
 													</header>
 												</div>
-												<div>
-													<p>Visual Studio 2012 NetBeans IntelliJ SublimeText</p>
+												<div class="accordion-content">
+													<li>Visual Studio 2013</li>
+													<li>NetBeans </li>
+													<li>IntelliJ </li>
+													<li>SublimeText</li>
 												</div>
 											</div>
 										</article>
@@ -194,8 +201,9 @@
 													<h3>Système d'exploitation</h3>												
 												</header>
 											</div>
-											<div>	
-													<p>Linux (Ubuntu) Windows (XP,7,8.1) </p>
+											<div class="accordion-content">	
+													<li>Linux (Ubuntu)</li>
+													<li>Windows (XP,7,8.1)</li>
 											</div>
 										</div>
 									</article>
