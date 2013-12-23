@@ -109,14 +109,18 @@
 								</h3>
 							</header>
 							
-							<p>Ligula scelerisque justo sem accumsan diam quis. Vitae natoque dictum 
-							etiam semper magnis enim feugiat convallis convallis egestas rhoncus ridiculus 
-							in quis risus curabitur tempor. Orci penatibus quisque laoreet condimentum 
-							sollicitudin accumsan elementum.</p>
+							<p>
+							
+						           Je prépare actuellement un Master 2 "Cloud Computing and Mobility" en alternance avec obtention du diplôme en Septembre 2014.
+							   Spécialisée dans le développement web, j’utilise quotidiennement la technologie ASP.NET MVC 4,Javascript (Jquery) et durant mon cursus 
+							   scolaire, j'ai acquis les bases du développement web (HTML5/CSS3/PHP5). 
+							   J’ai un faible pour le développement mobile, plus précisément sous Android et débutante sous IOs.
+						           Ouverte d’esprit, motivée et autonome, je m’adapte rapidement aux nouveaux environnements et aux nouvelles technologies.
+						        </p>
 
-							<footer>
+							<!--<footer>
 								<a href="#contact" class="button scrolly">Me contacter</a>
-							</footer>
+							</footer>-->
 
 						</div>
 					</section>
@@ -376,7 +380,7 @@
 					<div class="copyright">
 						<p>&copy; 2013 RENAUD Camille. All rights reserved.</p>
 						<ul class="menu">
-							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<!--<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>-->
 						</ul>
 					</div>
 				
